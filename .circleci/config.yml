@@ -53,8 +53,8 @@ workflows:
       - test
       - integration
       - artifact
-      - prod
-            filters:
-              branches:
-                only:
-                  - main
+      - prod:
+          filters:
+             branches:
+              only:
+                - main
