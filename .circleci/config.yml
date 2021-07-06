@@ -26,8 +26,19 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
+          when: always
 
-  prod:
+  artifact:
+    docker:
+      - image: python:3.6
+    steps:
+      - checkout
+      - run: echo "hello" > hello.txt
+      - stored_artifacts:
+          path: hello.txt
+          destination: hello.txt
+ 
+   prod:
     docker:
       - image: python:3.6
     steps:
@@ -41,4 +52,9 @@ workflows:
       - build
       - test
       - integration
+      - artifact
       - prod
+            filters:
+              branches:
+                only:
+                  - main
