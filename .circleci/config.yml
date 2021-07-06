@@ -38,7 +38,7 @@ jobs:
           path: hello.txt
           destination: hello.txt
  
-   prod:
+  prod:
     docker:
       - image: python:3.6
     steps:
