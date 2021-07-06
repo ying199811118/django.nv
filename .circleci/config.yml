@@ -34,7 +34,7 @@ jobs:
     steps:
       - checkout
       - run: echo "hello" > hello.txt
-      - stored_artifacts:
+      - store_artifacts:
           path: hello.txt
           destination: hello.txt
  
